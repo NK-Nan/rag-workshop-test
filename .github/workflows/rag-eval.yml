@@ -27,3 +27,9 @@ jobs:
       - name: Retrieval eval (dev)
         # rag.evaluate เขียนตารางผลลง $GITHUB_STEP_SUMMARY เอง
         run: python -m rag.evaluate --split dev --method tfidf -k 4 --min-hit 0.9
+
+      - name: W4 tests (hybrid)
+        run: python -m pytest -q -m w4
+
+      - name: Retrieval eval (dev, hybrid)
+        run: python -m rag.evaluate --split dev --method hybrid -k 4 --min-hit 0.9
